@@ -9,7 +9,7 @@ while read line
 do
     echo Get detail for ${line}
     road=`echo ${line}|cut -d "|" -f2`
-    district=`echo ${line}|cut -d "|" -f2`
+    district=`echo ${line}|cut -d "|" -f1`
     #echo ${road}
     get_url=`echo ${URL}|sed "s/ADDR/${road}/g"`
     filename=`echo ${road}|md5sum|cut -d " " -f1`
