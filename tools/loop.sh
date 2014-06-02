@@ -9,8 +9,9 @@ while read line
 do
     echo Get detail for ${line}
     road=`echo ${line}|cut -d "|" -f2`
+    district=`echo ${line}|cut -d "|" -f2`
     #echo ${road}
     get_url=`echo ${URL}|sed "s/ADDR/${road}/g"`
     filename=`echo ${road}|md5sum|cut -d " " -f1`
-    wget  ${get_url} -O ${TMP}/${filename}_${road}.json
+    wget  ${get_url} -O ${TMP}/${district}_${road}_${filename}.json
 done<${FILE_LIST}
